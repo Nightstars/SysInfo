@@ -5,6 +5,9 @@
 #include <wtypes.h>
 #include <windows.h>
 
+void test(int a,int b,int* c) {
+	*c=a+b;
+}
 int main()
 {
 	HINSTANCE hDllInst;
@@ -12,8 +15,13 @@ int main()
 	typedef std::string(*PLUSFUNC)(); 
 	PLUSFUNC plus_str = (PLUSFUNC)GetProcAddress(hDllInst, "getcpuid"); 
 	std::cout <<"CPUID："<< plus_str().data() << std::endl;
+	int a = 1;
+	int b = 2;
+	int c;
+	test(a,b,&c);
+	std::cout << c << std::endl;
 	system("pause");
-	FreeLibrary(hDllInst);
+	//FreeLibrary(hDllInst);
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单

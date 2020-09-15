@@ -9,8 +9,9 @@
 
 // 添加要在此处预编译的标头
 #include "framework.h"
-#include <string>
+
 #endif //PCH_H
+#include <string>
 //定义宏
 #ifdef IMPORT_DLL
 #else
